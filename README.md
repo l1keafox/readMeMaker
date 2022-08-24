@@ -16,7 +16,7 @@ Run 'node index.js' and answer the prompts given
 
 ![Website](/assets/images/readme.PNG)
 
-##installation 
+## installation 
 <a name="installation"></a>1. Download repo 
 
 

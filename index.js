@@ -170,7 +170,8 @@ strngToApnd+= answers.description+rtn;
 
 strngToApnd+= "## Table of Contents \n";
 //strngToApnd+= answers.description+rtn;
-strngToApnd+= `[installation](#installation)\n`
+strngToApnd+= `1.  [installation](#installation)\n`
+strngToApnd+= `2.  [Usage](#Usage)\n`
 // 1.  [Documentation](#documentation)
 
 
@@ -180,7 +181,7 @@ strngToApnd+= answers.usage+rtn;
 strngToApnd+= `![Website](/assets/images/${answers.image})\n\n`
 // Here we'll add an image.
 
-strngToApnd+= "##installation \n";
+strngToApnd+= "## installation \n";
 strngToApnd+= '<a name="installation"></a>';
 strngToApnd+= answers.installation+rtn;
 

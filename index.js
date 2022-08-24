@@ -77,7 +77,7 @@ const questions = [
     message: " installation instructions?",
     filter(val) {
       if (val === "") {
-        return '1. Download repo \n2. Run "node index.js"';
+        return ' 1. Download repo \n 2. Run "node index.js"';
       }
       return val;
     },
@@ -99,7 +99,7 @@ const questions = [
     message: "contribution guidelines?",
     filter(val) {
       if (val === "") {
-        return "We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:\n\n 1. Reporting a bug\n\n  2. Discussing the current state of the code\n\n 3. Submitting a fix \n\n 4. Proposing new features ";
+        return "We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's: \n\n 1. Reporting a bug\n\n 2. Discussing the current state of the code\n\n 3. Submitting a fix \n\n 4. Proposing new features ";
       }
       return val;
     },
@@ -227,7 +227,8 @@ function createMD(answers){
 function createMD2(answers){
   //   ${}
   let rtn = 
-  `# ${answers.ProjectTitle}
+  `
+  # ${answers.ProjectTitle}
 
   `;
 
@@ -249,7 +250,8 @@ function createMD2(answers){
   6.  [License](#License)
   
   ## Usage 
-  ${answers.usage}`;
+   ${answers.usage}
+  `;
 
   if (answers.deploy) {
     rtn +=
@@ -278,7 +280,8 @@ function createMD2(answers){
   <a href="mailto: ${answers.email}">Email :${answers.email}</a>
   
   ## License
-  ${answers.License}`;
+  ${answers.License}
+  `;
   return rtn;
 }
 

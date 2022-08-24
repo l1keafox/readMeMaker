@@ -9,7 +9,8 @@ Using Node.js this creates a readme.md for future repos.
 
 
 ## Table of Contents 
-[installation](#installation)
+1.  [installation](#installation)
+2.  [Usage](#Usage)
 ## Usage 
 Run 'node index.js' and answer the prompts given
 

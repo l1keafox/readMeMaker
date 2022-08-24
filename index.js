@@ -157,11 +157,8 @@ const questions = [
   },
 ];
 
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for information about my application repository
-const fs = require("fs");
-inquirer.prompt(questions).then((answers) => {
-  //
+function createMD(answers){
+
   let strngToApnd = "";
   let rtn = "\n\n\n";
   // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled
@@ -223,8 +220,65 @@ inquirer.prompt(questions).then((answers) => {
   //strngToApnd+= answers.email+rtn;
 
   strngToApnd += "## License\n";
-  strngToApnd += answers.License + rtn;
-  fs.appendFile("README.md", strngToApnd, (err) => {
+  strngToApnd += answers.License + rtn;  
+  return strngToApnd;
+}
+
+function createMD2(answers){
+  //   ${}
+  let rtn = 
+  `# ${answers.ProjectTitle}
+
+  ${licenseBadge}
+  
+  ${answers.description}
+  
+  
+  ## Table of Contents 
+  1.  [Usage](#Usage)
+  2.  [Installation](#Installation)
+  3.  [Contributing](#Contributing)
+  4.  [Questions](#Questions)
+  5.  [Tests](#Tests)
+  6.  [License](#License)
+  
+  ## Usage 
+  ${answers.usage}
+  
+  
+  ![Website](/assets/images/${answers.image})
+  
+  ## Installation 
+  ${answers.installation}
+  
+  
+  ## Contributing 
+  ${answers.contribution}
+  
+  ## Test 
+  ${answers.test}
+  
+  
+  ## Questions
+  <a href='https://github.com/${answers.gitHubUN}'>${answers.gitHubUN} github.</a> 
+  
+  <a href="mailto: ${answers.email}>Email :${answers.email}</a>
+  
+  ## License
+  ${answers.License}
+  `
+  return rtn;
+}
+
+// GIVEN a command-line application that accepts user input
+// WHEN I am prompted for information about my application repository
+const fs = require("fs");
+
+inquirer.prompt(questions).then((answers) => {
+  //
+//  let strngToApnd = createMD(answers);
+  let strngToApnd = createMD2(answers);
+  fs.writeFile("README.md", strngToApnd, (err) => {
     if (err) throw err;
     console.log('The "data to append" was appended to file!');
   });

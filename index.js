@@ -229,8 +229,14 @@ function createMD2(answers){
   let rtn = 
   `# ${answers.ProjectTitle}
 
-  ${licenseBadge}
-  
+  `;
+
+  if (licenseBadge) {
+    rtn += licenseBadge +'\n';
+  }
+
+  rtn += 
+  `
   ${answers.description}
   
   
@@ -243,8 +249,15 @@ function createMD2(answers){
   6.  [License](#License)
   
   ## Usage 
-  ${answers.usage}
-  
+  ${answers.usage}`;
+
+  if (answers.deploy) {
+    rtn +=
+      "\n* " + `<a href='https://l1keafox.github.io/${answers.ProjectTitle}/'  target="_blank"> Click here for deployment </a> \n\n`;
+  }
+
+  rtn +=
+  `
   
   ![Website](/assets/images/${answers.image})
   
@@ -262,11 +275,10 @@ function createMD2(answers){
   ## Questions
   <a href='https://github.com/${answers.gitHubUN}'>${answers.gitHubUN} github.</a> 
   
-  <a href="mailto: ${answers.email}>Email :${answers.email}</a>
+  <a href="mailto: ${answers.email}">Email :${answers.email}</a>
   
   ## License
-  ${answers.License}
-  `
+  ${answers.License}`;
   return rtn;
 }
 

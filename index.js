@@ -170,8 +170,11 @@ strngToApnd+= answers.description+rtn;
 
 strngToApnd+= "## Table of Contents \n";
 //strngToApnd+= answers.description+rtn;
-strngToApnd+= `1.  [installation](#installation)\n`
+strngToApnd+= `1.  [Installation](#Installation)\n`
 strngToApnd+= `2.  [Usage](#Usage)\n`
+strngToApnd+= `3.  [Contributing](#Contributing)\n`
+strngToApnd+= `4.  [Feedback and Contact info](#Feedback and Contact info)\n`
+
 // 1.  [Documentation](#documentation)
 
 
@@ -181,11 +184,11 @@ strngToApnd+= answers.usage+rtn;
 strngToApnd+= `![Website](/assets/images/${answers.image})\n\n`
 // Here we'll add an image.
 
-strngToApnd+= "## installation \n";
-strngToApnd+= '<a name="installation"></a>';
+strngToApnd+= "## Installation \n";
+//strngToApnd+= '<a name="installation"></a>';
 strngToApnd+= answers.installation+rtn;
 
-strngToApnd+= "## contributing \n";
+strngToApnd+= "## Contributing \n";
 strngToApnd+= answers.contributing+rtn;
 
 //strngToApnd+= "## test \n";

@@ -9,19 +9,21 @@ Using Node.js this creates a readme.md for future repos.
 
 
 ## Table of Contents 
-1.  [installation](#installation)
+1.  [Installation](#Installation)
 2.  [Usage](#Usage)
+3.  [Contributing](#Contributing)
+4.  [Feedback and Contact info](#Feedback and Contact info)
 ## Usage 
 Run 'node index.js' and answer the prompts given
 
 
 ![Website](/assets/images/readme.PNG)
 
-## installation 
-<a name="installation"></a>1. Download repo 
+## Installation 
+1. Download repo 
 
 
-## contributing 
+## Contributing 
 undefined
 
 

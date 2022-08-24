@@ -152,48 +152,52 @@ const fs = require('fs');
 inquirer.prompt(questions).then((answers) =>{
     // 
     let strngToApnd = '';
-
+    let rtn = '\n\n\n';
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled 
 // Description, //  Table of Contents, //  Installation, //  Usage, //  License, //  Contributing, //  Tests, and  Questions
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
 
 // THEN this is displayed as the title of the README
-strngToApnd+= "# "+ answers.ProjectTitle+"\n\n\n";
+strngToApnd+= "# "+ answers.ProjectTitle+rtn;
 
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 
 // THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
+strngToApnd+= '\n\n\n';
 strngToApnd+= "## Description \n";
-strngToApnd+= answers.description+"\n\n\n";
+strngToApnd+= answers.description+rtn;
 
 strngToApnd+= "## Table of Contents \n";
-//strngToApnd+= answers.description+"\n\n\n";
+//strngToApnd+= answers.description+rtn;
+strngToApnd+= `[installation](#installation)\n`
+// 1.  [Documentation](#documentation)
 
 
-
-strngToApnd+= "## installation \n";
-strngToApnd+= answers.installation+"\n\n\n";
 
 strngToApnd+= "## Usage \n";
-strngToApnd+= answers.usage+"\n\n\n";
+strngToApnd+= answers.usage+rtn;
 strngToApnd+= `![Website](/assets/images/${answers.image})\n\n`
 // Here we'll add an image.
 
+strngToApnd+= "##installation \n";
+strngToApnd+= '<a name="installation"></a>';
+strngToApnd+= answers.installation+rtn;
+
 strngToApnd+= "## contributing \n";
-strngToApnd+= answers.contributing+"\n\n\n";
+strngToApnd+= answers.contributing+rtn;
 
 //strngToApnd+= "## test \n";
-//strngToApnd+= answers.test+"\n\n\n";
+//strngToApnd+= answers.test+rtn;
 
 // THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
 strngToApnd+= "## Feedback and Contact info\n";
 strngToApnd+= answers.gitHubUN+"\n";
-strngToApnd+= answers.email+"\n\n\n";
+strngToApnd+= answers.email+rtn;
 
 strngToApnd+= "## License\n";
-strngToApnd+= answers.License+"\n\n\n";
+strngToApnd+= answers.License+rtn;
 
 fs.appendFile('README.md',strngToApnd, (err) => {
     if (err) throw err;

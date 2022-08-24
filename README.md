@@ -12,7 +12,7 @@ Using Node.js this creates a readme.md for future repos.
 1.  [Installation](#Installation)
 2.  [Usage](#Usage)
 3.  [Contributing](#Contributing)
-4.  [Feedback and Contact info](#Feedback and Contact info)
+4.  [Feedback/Contact](#Feedback/Contact)
 ## Usage 
 Run 'node index.js' and answer the prompts given
 
@@ -27,7 +27,7 @@ Run 'node index.js' and answer the prompts given
 undefined
 
 
-## Feedback and Contact info
+## Feedback/Contact
 l1keafox
 raymond.ed.lewis@gmail.com
 

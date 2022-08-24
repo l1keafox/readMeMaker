@@ -1,10 +1,10 @@
-# Password Generator
+# Readme Maker
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-A website that generated a random password depending on inputs.
+Using Node.js this creates a readme.md for future repos.
 
 
 ## Table of Contents 
@@ -16,16 +16,15 @@ A website that generated a random password depending on inputs.
 6.  [License](#License)
 
 ## Usage 
-Go to website to generate password and answer prompts.
+Run 'node index.js' and answer the prompts given
 
 
-![Website](/assets/images/projectImg.PNG)
+![Website](/assets/images/readme.PNG)
 
 ## Installation 
-No install.
+1. Download repo 
+2. Run "node index.js"
 
-
-* <a href='https://l1keafox.github.io/Password Generator/'> Click here for deployment </a> 
 
 ## Contributing 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
@@ -40,7 +39,7 @@ We love your input! We want to make contributing to this project as easy and tra
 
 
 ## Test 
-No test or extra commands.
+ This program only has one mode and no commands or test 
 
 
 ## Questions

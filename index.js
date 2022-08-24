@@ -132,15 +132,24 @@ const questions = [
 // WHEN I choose a license for my application from a list of options
 
 {
-    type:'input',
+    type:'list',
     name: 'License',
     message: 'License?',
+    choices: ['mit','isc','Apache2.0'],
     filter(value){
-        
-        if(value === ''){
-            return '[MIT](https://choosealicense.com/licenses/mit/)';
+        switch(value){
+            case 'mit':
+                return '[MIT](https://choosealicense.com/licenses/mit/)';
+            case 'isc':
+                let year = new Date().getFullYear();
+                let fullname = 'Raymond Lewis';
+                return `ISC License\n\nCopyright (c) ${year} ${fullname}\n\nPermission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.\n\n THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`;
+            case 'Apache2.0':
+                return "<a href='https://opensource.org/licenses/Apache-2.0'>Click here for Apache-2.0 License </a>"
+            default:
+                return value;
+
         }
-        return value;
     },
 },
 

@@ -16,7 +16,7 @@ const questions = [
         message: 'What is the project title?',
         filter(val){
             if(val === ''){
-                return 'testIng';
+                return 'Readme Maker';
             }
             return val;
         }
@@ -37,6 +37,17 @@ const questions = [
     filter(val){
         if(val === ''){
             return 'l1keafox';
+        }
+        return val;
+    }
+},
+{
+    type:'input',
+    name: 'image',
+    message: 'Enter image other than readme.PNG?',
+    filter(val){
+        if(val === ''){
+            return 'readme.PNG';
         }
         return val;
     }
@@ -62,7 +73,7 @@ const questions = [
         message: 'description?',
         filter(val){
             if(val === ''){
-                return 'what is life';
+                return 'Using Node.js this creates a readme.md for future repos.';
             }
             return val;
         }
@@ -75,7 +86,7 @@ const questions = [
         message: ' installation instructions?',
         filter(val){
             if(val === ''){
-                return 'Installing here?';
+                return '1. Download repo ';
             }
             return val;
         }
@@ -87,7 +98,7 @@ const questions = [
         message: 'usage information?',
         filter(val){
             if(val === ''){
-                return 'how to use it';
+                return "Run 'node index.js' and answer the prompts given";
             }
             return val;
         }
@@ -99,7 +110,7 @@ const questions = [
         message: 'contribution guidelines?',
         filter(val){
             if(val === ''){
-                return "Who's really every contrubting?";
+                return "Raymond Lewis";
             }
             return val;
         }
@@ -137,38 +148,57 @@ const questions = [
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for information about my application repository
-
+const fs = require('fs');
 inquirer.prompt(questions).then((answers) =>{
+    // 
+    let strngToApnd = '';
 
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled 
-//  Description, 
-//  Table of Contents, 
-//  Installation, 
-//  Usage, 
-//  License, 
-//  Contributing, 
-//  Tests, and  Questions
-
+// Description, //  Table of Contents, //  Installation, //  Usage, //  License, //  Contributing, //  Tests, and  Questions
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
 
 // THEN this is displayed as the title of the README
-answers.ProjectTitle;
+strngToApnd+= "# "+ answers.ProjectTitle+"\n\n\n";
+
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-answers.License;
+
+// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
+strngToApnd+= "## Description \n";
+strngToApnd+= answers.description+"\n\n\n";
+
+strngToApnd+= "## Table of Contents \n";
+//strngToApnd+= answers.description+"\n\n\n";
+
+
+
+strngToApnd+= "## installation \n";
+strngToApnd+= answers.installation+"\n\n\n";
+
+strngToApnd+= "## Usage \n";
+strngToApnd+= answers.usage+"\n\n\n";
+strngToApnd+= `![Website](/assets/images/${answers.image})\n\n`
+// Here we'll add an image.
+
+strngToApnd+= "## contributing \n";
+strngToApnd+= answers.contributing+"\n\n\n";
+
+//strngToApnd+= "## test \n";
+//strngToApnd+= answers.test+"\n\n\n";
 
 // THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-answers.gitNubUN;
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-answers.email;
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-answers.description;
-answers.usage;
-answers.installation;
-answers.contributing;
-answers.test;
+strngToApnd+= "## Feedback and Contact info\n";
+strngToApnd+= answers.gitHubUN+"\n";
+strngToApnd+= answers.email+"\n\n\n";
 
-    
-    console.log(answers);
+strngToApnd+= "## License\n";
+strngToApnd+= answers.License+"\n\n\n";
+
+fs.appendFile('README.md',strngToApnd, (err) => {
+    if (err) throw err;
+    console.log('The "data to append" was appended to file!');
+  });   
+
 
 });

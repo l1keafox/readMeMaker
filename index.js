@@ -86,7 +86,7 @@ const questions = [
         message: ' installation instructions?',
         filter(val){
             if(val === ''){
-                return '1. Download repo ';
+                return '1. Download repo \n2. Run "node index.js"';
             }
             return val;
         }
@@ -110,7 +110,7 @@ const questions = [
         message: 'contribution guidelines?',
         filter(val){
             if(val === ''){
-                return "Raymond Lewis";
+                return "We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:\n\n 1. Reporting a bug\n\n  2. Discussing the current state of the code\n\n 3. Submitting a fix \n\n 4. Proposing new features ";
             }
             return val;
         }
@@ -122,7 +122,7 @@ const questions = [
         message: 'test instructions?',
         filter(val){
             if(val === ''){
-                return 'test your ass yo';
+                return ' This program only has one mode and no commands or test ';
             }
             return val;
         }
@@ -131,18 +131,18 @@ const questions = [
 
 // WHEN I choose a license for my application from a list of options
 
-    {
-        type:'input',
-        name: 'License',
-        message: 'License?',
-        filter(value){
-            
-            if(value === ''){
-                return '[MIT](https://choosealicense.com/licenses/mit/)';
-            }
-            return value;
-        },
+{
+    type:'input',
+    name: 'License',
+    message: 'License?',
+    filter(value){
+        
+        if(value === ''){
+            return '[MIT](https://choosealicense.com/licenses/mit/)';
+        }
+        return value;
     },
+},
 
 ];
 
@@ -164,21 +164,18 @@ strngToApnd+= "# "+ answers.ProjectTitle+rtn;
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 
 // THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-strngToApnd+= '\n\n\n';
-strngToApnd+= "## Description \n";
+//strngToApnd+= "## Description \n";
 strngToApnd+= answers.description+rtn;
 
 strngToApnd+= "## Table of Contents \n";
 //strngToApnd+= answers.description+rtn;
-strngToApnd+= `1.  [Installation](#Installation)\n`
-strngToApnd+= `2.  [Usage](#Usage)\n`
+strngToApnd+= `1.  [Usage](#Usage)\n`
+strngToApnd+= `2.  [Installation](#Installation)\n`
 strngToApnd+= `3.  [Contributing](#Contributing)\n`
-strngToApnd+= `4.  [Feedback and Contact info](#Feedback and Contact info)\n`
-
-// 1.  [Documentation](#documentation)
-
-
-
+strngToApnd+= `4.  [Questions](#Questions)\n`
+strngToApnd+= `5.  [Tests](#Tests)\n`
+strngToApnd+= `6.  [License](#License)\n`
+strngToApnd+= "\n";
 strngToApnd+= "## Usage \n";
 strngToApnd+= answers.usage+rtn;
 strngToApnd+= `![Website](/assets/images/${answers.image})\n\n`
@@ -189,16 +186,19 @@ strngToApnd+= "## Installation \n";
 strngToApnd+= answers.installation+rtn;
 
 strngToApnd+= "## Contributing \n";
-strngToApnd+= answers.contributing+rtn;
+strngToApnd+= answers.contribution+rtn;
 
-//strngToApnd+= "## test \n";
-//strngToApnd+= answers.test+rtn;
+strngToApnd+= "## Test \n";
+strngToApnd+= answers.test+rtn;
 
 // THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-strngToApnd+= "## Feedback and Contact info\n";
-strngToApnd+= answers.gitHubUN+"\n";
-strngToApnd+= answers.email+rtn;
+strngToApnd+= "## Questions\n";
+strngToApnd+=`<a href='https://github.com/${answers.gitHubUN}'>${answers.gitHubUN} github.</a> \n\n`
+//l1keafox
+strngToApnd+= `<a href="mailto: ${answers.email}">Email : ${answers.email}</a>`+"\n\n";
+//<h3>LinkedIn : <a href="https://www.linkedin.com/in/raymond-lewis-51719325/" target="_blank" >Here</h3>
+//strngToApnd+= answers.email+rtn;
 
 strngToApnd+= "## License\n";
 strngToApnd+= answers.License+rtn;

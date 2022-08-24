@@ -128,6 +128,18 @@ const questions = [
         }
     
     },
+    {
+        type:'input',
+        name: 'deploy',
+        message: 'Do you want to deployment link?',
+        filter(val){
+            if(val === ''){
+                return false;
+            }
+            return true;
+        }
+    
+    },
 
 // WHEN I choose a license for my application from a list of options
 
@@ -193,6 +205,10 @@ strngToApnd+= `![Website](/assets/images/${answers.image})\n\n`
 strngToApnd+= "## Installation \n";
 //strngToApnd+= '<a name="installation"></a>';
 strngToApnd+= answers.installation+rtn;
+
+if(answers.deploy){
+    strngToApnd+= '* '+ `<a href='https://l1keafox.github.io/${answers.ProjectTitle}/'> Click here for deployment </a> \n\n`;
+}
 
 strngToApnd+= "## Contributing \n";
 strngToApnd+= answers.contribution+rtn;

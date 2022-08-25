@@ -17,7 +17,11 @@
   ## Usage 
    Run 'node index.js' and answer the prompts given
   
+  Click below for live example.
+  [![Click here for video example](./assets/images/videe.PNG)](https://drive.google.com/file/d/1AVfUgeJvG1Jhsw7rRXMNnuyPgJlrnEQV/view?usp=sharing)
   
+  Command Line image:
+
   ![Website](/assets/images/readme.PNG)
   
   ## Installation 
